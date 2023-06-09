@@ -11,11 +11,11 @@ while True:
         if delivery >= 1 and delivery <= 2:
 
             if delivery == 1:
-                print("+×+ Delivery +×+")
+                print("+×+  Delivery  +×+")
                 break
 
             elif delivery == 2:
-                print("+×+ Pickup +×+")
+                print("+×+  Pickup  +×+")
                 break
         else: 
             print("+×+ Number must be 1 or 2 +×+ ")
