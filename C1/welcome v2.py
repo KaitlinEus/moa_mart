@@ -15,8 +15,8 @@ def welcome():
     num = randint(0,9)
     name = (names[num])
 
-# Welcome message
-print(""" 
+    # Welcome message
+    print(""" 
 
      __    __     ______     ______          __    __     ______     ______     ______  
     /\ "-./  \   /\  __ \   /\  __ \        /\ "-./  \   /\  __ \   /\  == \   /\__  _\ 
@@ -26,11 +26,10 @@ print("""
       
       
       """)
-print("+×+ One Dream! Hello, we are TOMORROW X TOGETHER! +×+")
-
-print("+×+ My name is",name, "+×+")
-
-print("+×+ I will be here to help you order TXT albums! +×+")
+    print("+×+ One Dream! Hello, we are TOMORROW X TOGETHER! +×+")
+    print("+×+ Welcome to Moa Mart +×+")
+    print("+×+ My name is",name, "+×+")
+    print("+×+ I will be here to help you order your TXT album! +×+")
 
 def main():
      
