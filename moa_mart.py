@@ -6,7 +6,18 @@ from random import randint
 # List of random names
 names = ["Yeonjun", "Taehyun", "Huening Kai", "Beomgyu", "Soobin", "Steve", "Daniel ", "Ben", "Terry", "Hyuka"]
 
+# customer detailes dictionary
+customer_details = {}
 
+# Validates inputs to check if they are blank
+def not_blank(question):
+    valid = False
+    while not valid: 
+        response = input(question)
+        if response != "":
+            return response
+        else:
+            print("+×+ Sorry this cannot be blank +×+")
 
 #welcome message with random name
 def welcome():
@@ -20,7 +31,9 @@ def welcome():
 num = randint(0,9)
 name = (names[num])
 
+
 # Logo
+
 print(""" 
 
      __    __     ______     ______          __    __     ______     ______     ______  
@@ -31,7 +44,8 @@ print("""
       
       
       """)
-# welcome message
+# welcome message 
+
 print("+×+ One Dream! Hello, we are TOMORROW X TOGETHER! +×+")
 print("+×+ Welcome to Moa Mart +×+")
 print("+×+ My name is",name, "+×+")
@@ -54,10 +68,12 @@ def order_type():
 
                 if delivery == 1:
                     print("+×+  Delivery  +×+")
+                    delivery_info()
                     break
 
                 elif delivery == 2:
                     print("+×+  Pickup  +×+")
+                    pickup_info()
                     break
             else: 
                 print("+×+ Number must be 1 or 2 +×+ ")
@@ -68,12 +84,17 @@ def order_type():
 
 
 
+# Pick up information - name and phone
+def pickup_info():
+
+    question = ("+×+ Please enter your name +×+ ")
+    customer_details['name'] = not_blank(question)
+
+    question = ("+×+ Please enter your phone number +×+ ")
+    customer_details['phone'] = not_blank(question)
 
 
-
-
-
-
+    print("+×+ ",customer_details," +×+")
 
 
 
