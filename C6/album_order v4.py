@@ -39,7 +39,7 @@ def order_albums():
             else:
                 print("Your order must be between 1 and 5")
         except ValueError:
-            print("That is not a valid error")
+            print("That is not a valid number")
             print("Please enter a number between 1 and 5")
 
 
