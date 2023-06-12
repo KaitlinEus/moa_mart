@@ -16,6 +16,11 @@ album_names = ["Mini Album 'The Dream Chapter: Star'", "Mini Album 'Minisode 1 :
                "5th Mini Album 'The Name Chapter: TEMPTATION' Farewell ver"]
 album_prices = [59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 64.99, 64.99, 58.99, 58.99, 58.99, 45.99, 45.99, 45.99]
 
+#list to store ordered albums
+order_list =[]
+#list to store album prices
+order_cost =[]
+
 # customer detailes dictionary
 customer_details = {}
 
@@ -108,7 +113,6 @@ def pickup_info():
 
 # Delivery information - name, phone, address ...
 
-# customer detailes dictionary
 def delivery_info():
 
     question = ("+×+ Please enter your name +×+ ")
@@ -144,12 +148,52 @@ def menu():
         for count in range (num_albums):
             print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
 
+# Choose total number of albums - max 5
+# Album ordering - from menu - print each album with cost
 
+def order_albums():
+    #ask for total number of albums for order
+    num_albums = 0
+
+    while True:
+        try:
+            num_albums = int(input("How many albums do you want to order? "))
+            if num_albums >= 1 and num_albums <= 5:
+                break
+            else:
+                print("Your order must be between 1 and 5")
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter a number between 1 and 5")
+
+
+    #choose album from menu
+
+    for item in range(num_albums):
+        while num_albums > 0: 
+                while True:
+                    try:
+                        album_ordered = int(input("Please choose your albums by entering the number from the menu "))
+                        if album_ordered >= 1 and album_ordered <= 16:
+                            break
+                        else:
+                            print("You order must be between 1 and 12")
+                    except ValueError:
+                        print("That is not a valid number")
+                        print("Please enter a number from the menu")
+        
+                    
+                album_ordered = album_ordered -1
+                order_list.append(album_names[album_ordered])
+                order_cost.append(album_prices[album_ordered])
+                num_albums = num_albums-1
+                print("{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]))
 
 
 
 
 # Main function
+
 def main():
      
     '''
@@ -161,6 +205,7 @@ def main():
     welcome()
     order_type()
     menu()
+    order_albums()
 
 
 main()
