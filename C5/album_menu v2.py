@@ -12,7 +12,7 @@ def menu():
         num_albums = 16
 
         for count in range (num_albums):
-            print("{} {} ${:.2f}".format(count+1, album_names_names[count], album_prices[count]))
+            print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
 
 menu()
 
