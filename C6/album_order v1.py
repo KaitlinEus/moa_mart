@@ -8,10 +8,42 @@ album_names = ["Mini Album 'The Dream Chapter: Star'", "Mini Album 'Minisode 1 :
                "5th Mini Album 'The Name Chapter: TEMPTATION' Farewell ver"]
 album_prices = [59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 64.99, 64.99, 58.99, 58.99, 58.99, 45.99, 45.99, 45.99]
 
-num_albums = 16
+#list to store ordered albums
+order_list =[]
+#list to store album prices
+order_cost =[]
 
-#print("How many pizzas would you like to order? ")
-#num_pizza = int(input())
+#list to store order cost
 
-for count in range (num_albums):
-    print(count, album_names[count], album_prices[count])
+
+def menu():
+        num_albums = 16
+
+        for count in range (num_albums):
+            print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
+
+menu()
+
+########
+
+#ask for total number of albums for order
+num_albums = 0
+
+num_albums = int(input("How many albums do you want to order? "))
+
+print(num_albums)
+
+#choose album from menu
+
+print("Please choose your albums by entering the number from the menu")
+
+for item in range(num_albums):
+      while num_albums > 0:
+            album_ordered = int(input())
+            order_list.append(album_names[album_ordered])
+            order_cost.append(album_prices[album_ordered])
+            num_albums = num_albums-1
+
+print(order_list)
+print(order_cost)
+
