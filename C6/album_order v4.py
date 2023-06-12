@@ -50,7 +50,7 @@ def order_albums():
                 while True:
                     try:
                         album_ordered = int(input("Please choose your albums by entering the number from the menu "))
-                        if album_ordered >= 1 and album_ordered <= 12:
+                        if album_ordered >= 1 and album_ordered <= 16:
                             break
                         else:
                             print("You order must be between 1 and 12")
