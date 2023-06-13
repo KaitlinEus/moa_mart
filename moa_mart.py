@@ -67,14 +67,14 @@ print("+×+ My name is",name, "+×+")
 print("+×+ I will be here to help you order your TXT album! +×+")
 
 
-# menu for pickup or delivery
+# menu for click and collect or delivery
 
 def order_type():
 
-    print("+×+ Is your order for pickup or delivery? +×+")
+    print("+×+ Is your order for click and collect or delivery? +×+")
 
     print("+×+ For delivery please enter 1 +×+")
-    print("+×+ For pickup please enter 2 +×+")
+    print("+×+ For click and collect please enter 2 +×+")
 
     while True: 
         try:
@@ -87,8 +87,8 @@ def order_type():
                     break
 
                 elif delivery == 2:
-                    print("+×+  Pickup  +×+")
-                    pickup_info()
+                    print("+×+  Click and Collect  +×+")
+                    candc_info()
                     break
             else: 
                 print("+×+ Number must be 1 or 2 +×+ ")
@@ -99,8 +99,8 @@ def order_type():
 
 
 
-# Pick up information - name and phone
-def pickup_info():
+# Click and collect information - name and phone
+def candc_info():
 
     question = ("+×+ Please enter your name +×+ ")
     customer_details['name'] = not_blank(question)

@@ -1,9 +1,9 @@
 # menu so that user can choose either pickup or delivery
 
-print("+×+ Is your order for pickup or delivery? +×+")
+print("+×+ Is your order for click and collect or delivery? +×+")
 
 print("+×+ For deliver please enter 1 +×+")
-print("+×+ For pickup please enter 2 +×+")
+print("+×+ For click and collect please enter 2 +×+")
 
 while True: 
     try:
@@ -15,7 +15,7 @@ while True:
                 break
 
             elif delivery == 2:
-                print("+×+  Pickup  +×+")
+                print("+×+  Click and Collect  +×+")
                 break
         else: 
             print("+×+ Number must be 1 or 2 +×+ ")
