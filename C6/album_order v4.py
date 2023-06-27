@@ -21,9 +21,6 @@ def menu():
 
         for count in range (num_albums):
             print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
-
-menu()
-
 ########
 
 
@@ -53,7 +50,7 @@ def order_albums():
                         if album_ordered >= 1 and album_ordered <= 16:
                             break
                         else:
-                            print("You order must be between 1 and 12")
+                            print("You order must be between 1 and 16")
                     except ValueError:
                         print("That is not a valid number")
                         print("Please enter a number from the menu")
