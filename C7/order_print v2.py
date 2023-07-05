@@ -7,10 +7,8 @@ order_cost =[59.99, 59.99, 59.99, 45.99]
 cust_details = {'name': 'Denzelle', 'phone': '1234567890', 'house': '1a', 'street': 'broadhurst road', 'suburb': 'Flat Bush'}
 
 
+print(f"Customer Name : {cust_details['name']} \nCustomer Phone Number :{cust_details['phone']} \nCustomer Address :{cust_details['house']} {cust_details['street']} {cust_details['suburb']}")
 
-#print("\n",cust_details['name'], "\n", cust_details['phone'], "\n", cust_details['house'], "\n", cust_details['street'], "\n", cust_details['suburb'])
-
-print("\n Customer Name: {} Customer Phone: \n{} Customer House Number: \n{} Customer Street Nane: \n{} Customer Suburb: \n{}".format(cust_details['name'], cust_details['phone'], cust_details['house'],  cust_details['street'], cust_details['suburb']))
 
 
 count = 0
