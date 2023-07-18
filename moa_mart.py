@@ -70,6 +70,7 @@ print("+×+ I will be here to help you order your TXT album! +×+")
 # menu for click and collect or delivery
 
 def order_type():
+    del_collect = ""
 
     print("+×+ Is your order for click and collect or delivery? +×+")
 
@@ -84,11 +85,13 @@ def order_type():
                 if delivery == 1:
                     print("+×+  Delivery  +×+")
                     delivery_info()
+                    del_collect = "delivery"
                     break
 
                 elif delivery == 2:
                     print("+×+  Click and Collect  +×+")
                     candc_info()
+                    del_collect = "collect"
                     break
             else: 
                 print("+×+ Number must be 1 or 2 +×+ ")
@@ -96,6 +99,7 @@ def order_type():
         except ValueError:
             print("+×+ That is not a valid number +×+")
             print("+×+ Please enter 1 or 2 +×+ ")
+    return del_collect
 
 
 
@@ -189,6 +193,32 @@ def order_albums():
                 num_albums = num_albums-1
                 print("{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]))
 
+# print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
+
+def print_order(del_collect):
+    print()
+    total_cost = sum(order_cost)
+
+    print("+×+ Customer Details +×+")
+    if del_collect == "collect":
+            print("Your order is for pickup")
+            print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+")
+    
+    elif del_collect == "delivery":
+        print("Your order is for delivery")
+        print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+ \nCustomer Address: +×+  {customer_details['house']} {customer_details['street']} {customer_details['suburb']}  +×+")
+    print()
+
+    print("+×+ Order Details +×+")
+    count = 0
+    for item in order_list:
+        print("Ordered: +×+  {}  +×+ Cost: +×+  ${:.2f}  +×+".format(item, order_cost[count]))
+        count = count+1
+    print()
+        
+    print("+×+ Total Cost +×+")
+    print(f"+×+  ${total_cost:.2f}  +×+")
+
 
 
 
@@ -203,9 +233,10 @@ def main():
     '''
      
     welcome()
-    order_type()
+    del_collect = order_type()
     menu()
     order_albums()
+    print_order(del_collect)
 
 
 main()
