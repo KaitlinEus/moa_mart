@@ -205,7 +205,9 @@ def print_order(del_collect):
             print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+")
     
     elif del_collect == "delivery":
-        print("Your order is for +×+  delivery  +×+")
+        print("Your order is for: +×+  delivery  +×+")
+        print("Delivery charge: +×+  $5  +×+")
+        total_cost = total_cost + 5
         print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+ \nCustomer Address: +×+  {customer_details['house']} {customer_details['street']} {customer_details['suburb']}  +×+")
     print()
 
