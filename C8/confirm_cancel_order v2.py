@@ -10,10 +10,12 @@ while True:
 
             if confirm == 1:
                 print("+×+  Order confirmed  +×+")
+                print("+×+ Your order is now being prepared +×+")
                 break
 
             elif confirm == 2:
                 print("+×+  Order cancelled  +×+")
+                print("+×+ You can restart or exit the BOT +×+")
                 break
         else: 
             print("+×+ Number must be 1 or 2 +×+ ")
