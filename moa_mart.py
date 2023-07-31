@@ -2,6 +2,7 @@
 
 import random
 from random import randint
+import sys
 
 # List of random names
 names = ["Yeonjun", "Taehyun", "Huening Kai", "Beomgyu", "Soobin", "Steve", "Daniel ", "Ben", "Terry", "Hyuka"]
@@ -239,11 +240,13 @@ def confirm_cancel():
                 if confirm == 1:
                     print("+×+  Order confirmed  +×+")
                     print("+×+ Your order is now being prepared +×+")
+                    new_exit()
                     break
 
                 elif confirm == 2:
                     print("+×+  Order cancelled  +×+")
                     print("+×+ You can restart or exit the BOT +×+")
+                    new_exit()
                     break
             else: 
                 print("+×+ Number must be 1 or 2 +×+ ")
@@ -252,7 +255,39 @@ def confirm_cancel():
             print("+×+ That is not a valid number +×+")
             print("+×+ Please enter 1 or 2 +×+ ")
             
+# Option for new order or to exit
+def new_exit():
+    print("+×+ Do you want to start another order or exit? +×+")
 
+    print("+×+ To start another order, please enter 1 +×+")
+    print("+×+ To exit the BOT, please enter 2 +×+")
+
+    while True: 
+        try:
+            confirm = int(input("+×+ Please enter a number +×+ "))
+            if confirm >= 1 and confirm <= 2:
+
+                if confirm == 1:
+                    print("+×+  New Order  +×+")
+                    order_list.clear()
+                    order_cost.clear()
+                    customer_details.clear()
+                    main()
+                    break
+
+                elif confirm == 2:
+                    print("+×+  Exit  +×+")
+                    order_list.clear()
+                    order_cost.clear()
+                    customer_details.clear()
+                    sys.exit()
+                    break
+            else: 
+                print("+×+ Number must be 1 or 2 +×+ ")
+
+        except ValueError:
+            print("+×+ That is not a valid number +×+")
+            print("+×+ Please enter 1 or 2 +×+ ")
 
 
 # Main function
@@ -271,6 +306,6 @@ def main():
     order_albums()
     print_order(del_collect)
     confirm_cancel()
-
+    
 
 main()
