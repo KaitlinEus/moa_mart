@@ -7,6 +7,8 @@ import sys
 # Constants
 low = 1
 high =2
+ph_low = 7
+ph_high = 10
 
 # List of random names
 names = ["Yeonjun", "Taehyun", "Huening Kai", "Beomgyu", "Soobin", "Steve", "Daniel ", "Ben", "Terry", "Hyuka"]
@@ -68,6 +70,22 @@ def val_int(low, high, question):
             print(f"+×+ Enter a number between {low} and {high} +×+ ")
 
 
+# Validates inputs to check if they are an integer with 7 to 10 digits
+def check_phone(question, ph_low, ph_high):
+    while True:
+        try:
+            num = int(input(question))
+            test_num = num
+            count = 0
+            while test_num > 0:
+                test_num = test_num//10
+                count = count+1
+            if count >= ph_low and count <= ph_high:
+                return num
+            else:
+                print("NZ phone numbers have between 7 and 10 digits")
+        except ValueError:
+            print("Please enter a number")
 
 #welcome message with random name
 def welcome():
@@ -139,7 +157,7 @@ def candc_info():
     customer_details['name'] = check_string(question)
 
     question = ("+×+ Please enter your phone number +×+ ")
-    customer_details['phone'] = not_blank(question)
+    customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
 
     print("+×+ ",customer_details," +×+")
@@ -154,7 +172,7 @@ def delivery_info():
     print("+×+ ",customer_details["name"]," +×+ ")
 
     question = ("+×+ Please enter your phone number +×+ ")
-    customer_details['phone'] = not_blank(question)
+    customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
     print("+×+ ",customer_details["phone"]," +×+ ")
 
