@@ -40,6 +40,17 @@ def not_blank(question):
             print("+×+ Sorry this cannot be blank +×+")
 
 
+# Validates to check if they are a string
+def check_string(question):
+    while True:
+        response = input(question)
+        x = response.isalpha()
+
+        if x == False:
+            print("input must only contain letters")
+        else:
+            return (response.title())
+
 # Validates inputs to check if they are an integer
 def val_int(low, high, question):
 
@@ -125,7 +136,7 @@ def order_type():
 def candc_info():
 
     question = ("+×+ Please enter your name +×+ ")
-    customer_details['name'] = not_blank(question)
+    customer_details['name'] = check_string(question)
 
     question = ("+×+ Please enter your phone number +×+ ")
     customer_details['phone'] = not_blank(question)
@@ -138,7 +149,7 @@ def candc_info():
 def delivery_info():
 
     question = ("+×+ Please enter your name +×+ ")
-    customer_details['name'] = not_blank(question)
+    customer_details['name'] = check_string(question)
 
     print("+×+ ",customer_details["name"]," +×+ ")
 
@@ -153,12 +164,12 @@ def delivery_info():
     print("+×+ ",customer_details['house']," +×+ ")
 
     question = ("+×+ Please enter your street name +×+ ")
-    customer_details['street'] = not_blank(question)
+    customer_details['street'] = check_string(question)
 
     print("+×+ ",customer_details['street']," +×+ ")
 
     question = ("+×+ Please enter your suburb +×+ ")
-    customer_details['suburb'] = not_blank(question)
+    customer_details['suburb'] = check_string(question)
 
     print("+×+ ",customer_details['suburb']," +×+ ")
 
