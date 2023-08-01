@@ -205,7 +205,7 @@ def menu():
 def order_albums():
     #ask for total number of albums for order
     num_albums = 0
-    num_high = 5
+    num_high = 10
     menu_low = 1
     menu_high = 16
 
@@ -242,8 +242,13 @@ def print_order(del_collect):
     
     elif del_collect == "delivery":
         print("Your order is for: +×+  delivery  +×+")
-        print("Delivery charge: +×+  $5  +×+")
-        total_cost = total_cost + 5
+        
+        if len(order_list) < 5:
+            total_cost = total_cost + 9
+            print("Delivery charge: +×+ $9 +×+")
+        else:
+            total_cost = total_cost + 0
+            print("Delivery charge: +×+ $0 +×+")
         print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+ \nCustomer Address: +×+  {customer_details['house']} {customer_details['street']} {customer_details['suburb']}  +×+")
     print()
 
