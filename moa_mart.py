@@ -259,11 +259,10 @@ def confirm_cancel():
             print("+×+ Your order is now being prepared +×+")
             new_exit()
 
-
-    elif confirm == 2:
-                    print("+×+  Order cancelled  +×+")
-                    print("+×+ You can restart or exit the BOT +×+")
-                    new_exit()
+        elif confirm == 2:
+            print("+×+  Order cancelled  +×+")
+            print("+×+ You can restart or exit the BOT +×+")
+            new_exit()
                     
             
 # Option for new order or to exit
