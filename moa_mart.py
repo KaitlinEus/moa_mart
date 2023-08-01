@@ -35,6 +35,25 @@ def not_blank(question):
         else:
             print("+×+ Sorry this cannot be blank +×+")
 
+
+# Validates inputs to check if they are an integer
+def val_int(low, high, question):
+
+
+    while True: 
+        try:
+            num = int(input(question))
+            if num >= low and num <= high:
+                return num
+            else: 
+                print(f"+×+ Number must be between {low} and {high} +×+ ")
+
+        except ValueError:
+            print("+×+ That is not a valid number +×+")
+            print(f"+×+ Enter a number between {low} and {high} +×+ ")
+
+
+
 #welcome message with random name
 def welcome():
 
@@ -73,33 +92,29 @@ print("+×+ I will be here to help you order your TXT album! +×+")
 def order_type():
     del_collect = ""
 
+    low = 1
+    high = 2
+
+    question = (f"Enter a number between {low} and {high} ")
+
     print("+×+ Is your order for click and collect or delivery? +×+")
 
     print("+×+ For delivery please enter 1 +×+")
     print("+×+ For click and collect please enter 2 +×+")
 
-    while True: 
-        try:
-            delivery = int(input("+×+ Please enter a number +×+ "))
-            if delivery >= 1 and delivery <= 2:
+    
+    delivery = val_int(low, high, question)
 
-                if delivery == 1:
-                    print("+×+  Delivery  +×+")
-                    delivery_info()
-                    del_collect = "delivery"
-                    break
+    if delivery == 1:
+        print("+×+  Delivery  +×+")
+        delivery_info()
+        del_collect = "delivery"
 
-                elif delivery == 2:
-                    print("+×+  Click and Collect  +×+")
-                    candc_info()
-                    del_collect = "collect"
-                    break
-            else: 
-                print("+×+ Number must be 1 or 2 +×+ ")
+    elif delivery == 2:
+        print("+×+  Click and Collect  +×+")
+        candc_info()
+        del_collect = "collect"
 
-        except ValueError:
-            print("+×+ That is not a valid number +×+")
-            print("+×+ Please enter 1 or 2 +×+ ")
     return del_collect
 
 
@@ -226,34 +241,30 @@ def print_order(del_collect):
 # Ability to cancel or proceed with order
 
 def confirm_cancel():
+    low = 1
+    high = 2
+
+    question = (f"Enter a number between {low} and {high} ")
 
     print("+×+ Please confirm your order +×+")
 
     print("+×+ To confirm, please enter 1 +×+")
     print("+×+ To cancel, please enter 2 +×+")
 
-    while True: 
-        try:
-            confirm = int(input("+×+ Please enter a number +×+ "))
-            if confirm >= 1 and confirm <= 2:
+    confirm = val_int(low, high, question)
+    if confirm >= low and confirm <= high:
 
-                if confirm == 1:
-                    print("+×+  Order confirmed  +×+")
-                    print("+×+ Your order is now being prepared +×+")
-                    new_exit()
-                    break
+        if confirm == 1:
+            print("+×+  Order confirmed  +×+")
+            print("+×+ Your order is now being prepared +×+")
+            new_exit()
 
-                elif confirm == 2:
+
+    elif confirm == 2:
                     print("+×+  Order cancelled  +×+")
                     print("+×+ You can restart or exit the BOT +×+")
                     new_exit()
-                    break
-            else: 
-                print("+×+ Number must be 1 or 2 +×+ ")
-
-        except ValueError:
-            print("+×+ That is not a valid number +×+")
-            print("+×+ Please enter 1 or 2 +×+ ")
+                    
             
 # Option for new order or to exit
 def new_exit():
