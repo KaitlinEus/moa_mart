@@ -175,39 +175,31 @@ def order_albums():
     #ask for total number of albums for order
     num_albums = 0
 
-    while True:
-        try:
-            num_albums = int(input("How many albums do you want to order? "))
-            if num_albums >= 1 and num_albums <= 5:
-                break
-            else:
-                print("Your order must be between 1 and 5")
-        except ValueError:
-            print("That is not a valid number")
-            print("Please enter a number between 1 and 5")
+    low = 1
+    high = 5
 
+    menu_low = 1
+    menu_high = 16
+
+    question = (f"Enter a number between {low} and {high} ")
+    print("how many albums do you want to order?")
+
+    num_albums = val_int(low, high, question)
 
     #choose album from menu
 
     for item in range(num_albums):
         while num_albums > 0: 
-                while True:
-                    try:
-                        album_ordered = int(input("Please choose your albums by entering the number from the menu "))
-                        if album_ordered >= 1 and album_ordered <= 16:
-                            break
-                        else:
-                            print("You order must be between 1 and 16")
-                    except ValueError:
-                        print("That is not a valid number")
-                        print("Please enter a number from the menu")
+            print("Please choose your albums by entering the numbers from the menu")
+            question = (f"Enter a number between {menu_low} and {menu_high} ")
+            album_ordered = val_int(menu_low, menu_high, question)
+
         
-                    
-                album_ordered = album_ordered -1
-                order_list.append(album_names[album_ordered])
-                order_cost.append(album_prices[album_ordered])
-                num_albums = num_albums-1
-                print("{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]))
+            album_ordered = album_ordered -1
+            order_list.append(album_names[album_ordered])
+            order_cost.append(album_prices[album_ordered])
+            num_albums = num_albums-1
+            print("{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]))
 
 # print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
 
