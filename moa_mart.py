@@ -4,6 +4,10 @@ import random
 from random import randint
 import sys
 
+# Constants
+low = 1
+high =2
+
 # List of random names
 names = ["Yeonjun", "Taehyun", "Huening Kai", "Beomgyu", "Soobin", "Steve", "Daniel ", "Ben", "Terry", "Hyuka"]
 
@@ -92,8 +96,6 @@ print("+×+ I will be here to help you order your TXT album! +×+")
 def order_type():
     del_collect = ""
 
-    low = 1
-    high = 2
 
     question = (f"Enter a number between {low} and {high} ")
 
@@ -174,17 +176,14 @@ def menu():
 def order_albums():
     #ask for total number of albums for order
     num_albums = 0
-
-    low = 1
-    high = 5
-
+    num_high = 5
     menu_low = 1
     menu_high = 16
 
-    question = (f"Enter a number between {low} and {high} ")
+    question = (f"Enter a number between {low} and {num_high} ")
     print("how many albums do you want to order?")
 
-    num_albums = val_int(low, high, question)
+    num_albums = val_int(low, num_high, question)
 
     #choose album from menu
 
@@ -233,8 +232,6 @@ def print_order(del_collect):
 # Ability to cancel or proceed with order
 
 def confirm_cancel():
-    low = 1
-    high = 2
 
     question = (f"Enter a number between {low} and {high} ")
 
@@ -259,9 +256,6 @@ def confirm_cancel():
             
 # Option for new order or to exit
 def new_exit():
-
-    low = 1
-    high = 2
 
     question = (f"Enter a number between {low} and {high} ")
 
