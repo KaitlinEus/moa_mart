@@ -3,6 +3,7 @@
 import random
 from random import randint
 import sys
+import simple_colors
 
 # Constants
 low = 1
@@ -112,9 +113,9 @@ print("""
       """)
 
 # Header for welcome
-print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-print("+×+           One Dream! Hello, we are TOMORROW X TOGETHER!          +×+")
-print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+print(simple_colors.yellow("          +×+"),"One Dream! Hello, we are TOMORROW X TOGETHER!",simple_colors.yellow("+×+"))
+print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 # welcome message 
 print("\nWelcome to Moa Mart. My name is",name)
 print("I will be here to help you order your TXT album!")
@@ -129,9 +130,10 @@ def order_type():
     question = (f"Please enter a number between {low} and {high}: ")
 
     # Title header for click and collect
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                  DELIVERY OR CLICK AND COLLECT                   +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                  +×+"),"DELIVERY OR CLICK AND COLLECT",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+
 
     print("\nIs your order for click and collect or delivery?")
     print("For delivery please enter 1")
@@ -157,9 +159,10 @@ def order_type():
 # Click and collect information - name and phone
 def candc_info():
     # Title header for click and collect information
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                      CLICK AND COLLECT DETAILS                   +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                    +×+"),"CLICK AND COLLECT DETAILS",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
     question = ("\nPlease enter your name: ")
     customer_details['name'] = check_string(question)
@@ -176,9 +179,9 @@ def candc_info():
 def delivery_info():
 
     # Title header for delivery information
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                          DELIVERY DETAILS                        +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                        +×+"),"DELIVERY DETAILS",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
     question = ("\nPlease enter your name: ")
     customer_details['name'] = check_string(question)
@@ -208,9 +211,9 @@ def delivery_info():
 # Album menu
 def menu():
         # Title header for the menu
-        print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-        print("+×+                              ALBUMS                              +×+")
-        print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+        print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+        print(simple_colors.yellow("                             +×+"),"ALBUMS",simple_colors.yellow("+×+"))
+        print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
         num_albums = 16
 
@@ -226,9 +229,9 @@ def menu():
 def order_albums():
 
     # Title header for album ordering
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                            ORDER ALBUMS                          +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                          +×+"),"ORDER ALBUMS",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
     #ask for total number of albums for order
     num_albums = 0
@@ -265,9 +268,9 @@ def print_order(del_collect):
     print()
     total_cost = sum(order_cost)
 
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                          CUSTOMER DETAILS                        +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                        +×+"),"CUSTOMER DETAILS",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     if del_collect == "collect":
             print("\nYour order is for: Pickup")
             print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
@@ -278,9 +281,9 @@ def print_order(del_collect):
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
 
 
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                            ORDER DETAILS                         +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                         +×+"),"ORDER DETAILS",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     count = 0
     print()
     for item in order_list:
@@ -312,9 +315,9 @@ def confirm_cancel():
 
     question = (f"Please enter a number between {low} and {high}: ")
 
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                          CONFIRM OR CANCEL                       +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                        +×+"),"CONFIRM OR CANCEL",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
     print("\nPlease confirm your order")
 
@@ -338,9 +341,9 @@ def confirm_cancel():
 # Option for new order or to exit
 def new_exit():
 
-    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
-    print("+×+                         NEW ORDER OR EXIT                        +×+")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                       +×+"),"NEW ORDER OR EXIT",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
     question = (f"please enter a number between {low} and {high}: ")
 
