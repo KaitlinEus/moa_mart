@@ -39,8 +39,7 @@ def not_blank(question):
         if response != "":
             return response
         else:
-            print("")
-            print("Sorry this cannot be blank")
+            print("\nSorry this cannot be blank")
 
 
 # Validates to check if they are a string
@@ -50,8 +49,7 @@ def check_string(question):
         x = response.isalpha()
 
         if x == False:
-            print("")
-            print("Sorry, you must only input letters")
+            print("\nSorry, you must only input letters")
         else:
             return (response.title())
 
@@ -65,12 +63,10 @@ def val_int(low, high, question):
             if num >= low and num <= high:
                 return num
             else:
-                print("")
-                print("That is not a valid number")
+                print("\nThat is not a valid number")
 
         except ValueError:
-            print("")
-            print("That is not a valid number")
+            print("\nThat is not a valid number")
 
 
 # Validates inputs to check if they are an integer with 7 to 10 digits
@@ -86,11 +82,9 @@ def check_phone(question, ph_low, ph_high):
             if count >= ph_low and count <= ph_high:
                 return num
             else:
-                print("")
-                print("NZ phone numbers have between 7 and 10 digits")
+                print("\nNZ phone numbers have between 7 and 10 digits")
         except ValueError:
-            print("")
-            print("NZ phone numbers have between 7 and 10 digits")
+            print("\nNZ phone numbers have between 7 and 10 digits")
 
 #welcome message with random name
 def welcome():
@@ -122,16 +116,12 @@ print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++
 print("+×+           One Dream! Hello, we are TOMORROW X TOGETHER!          +×+")
 print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 # welcome message 
-print("")
-print("Welcome to Moa Mart. My name is",name)
+print("\nWelcome to Moa Mart. My name is",name)
 print("I will be here to help you order your TXT album!")
-print("")
 
 
 
 # menu for click and collect or delivery
-
-print()
 
 def order_type():
     del_collect = ""
@@ -139,12 +129,11 @@ def order_type():
     question = (f"Please enter a number between {low} and {high}: ")
 
     # Title header for click and collect
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                  DELIVERY OR CLICK AND COLLECT                   +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
-    print("")
-    print("Is your order for click and collect or delivery?")
+    print("\nIs your order for click and collect or delivery?")
     print("For delivery please enter 1")
     print("For click and collect please enter 2")
 
@@ -152,16 +141,12 @@ def order_type():
     delivery = val_int(low, high, question)
 
     if delivery == 1:
-        print("")
-        print("+×+  Delivery  +×+")
-        print("")
+        print("\n+×+  Delivery  +×+")
         delivery_info()
         del_collect = "delivery"
 
     elif delivery == 2:
-        print("")
-        print("+×+  Click and Collect  +×+")
-        print("")
+        print("\n+×+  Click and Collect  +×+")
         candc_info()
         del_collect = "collect"
 
@@ -172,86 +157,68 @@ def order_type():
 # Click and collect information - name and phone
 def candc_info():
     # Title header for click and collect information
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                      CLICK AND COLLECT DETAILS                   +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
-    print("")
-    question = ("Please enter your name: ")
+    question = ("\nPlease enter your name: ")
     customer_details['name'] = check_string(question)
 
-    print("")
-    print("+×+ ",customer_details["name"]," +×+ ")
-    print("")
+    print("\n+×+ ",customer_details["name"]," +×+ ")
 
-    question = ("Please enter your phone number: ")
+    question = ("\nPlease enter your phone number: ")
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
-    print("")
-    print("+×+ ",customer_details["phone"]," +×+ ")
-    print("")
+    print("\n+×+ ",customer_details["phone"]," +×+ ")
 
 # Delivery information - name, phone, address ...
 
 def delivery_info():
 
     # Title header for delivery information
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                          DELIVERY DETAILS                        +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
-    print("")
-    question = ("Please enter your name: ")
+    question = ("\nPlease enter your name: ")
     customer_details['name'] = check_string(question)
 
-    print("")
-    print("+×+ ",customer_details["name"]," +×+ ")
-    print("")
+    print("\n+×+ ",customer_details["name"]," +×+ ")
 
-    question = ("Please enter your phone number: ")
+    question = ("\nPlease enter your phone number: ")
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
-    print("")
-    print("+×+ ",customer_details["phone"]," +×+ ")
-    print("")
+    print("\n+×+ ",customer_details["phone"]," +×+ ")
 
-    question = ("Please enter your house number: ")
+    question = ("\nPlease enter your house number: ")
     customer_details['house'] = not_blank(question)
 
-    print("")
-    print("+×+ ",customer_details['house']," +×+ ")
-    print("")
+    print("\n+×+ ",customer_details['house']," +×+ ")
 
-    question = ("Please enter your street name: ")
+    question = ("\nPlease enter your street name: ")
     customer_details['street'] = check_string(question)
 
-    print("")
-    print("+×+ ",customer_details['street']," +×+ ")
-    print("")
+    print("\n+×+ ",customer_details['street']," +×+ ")
 
-    question = ("Please enter your suburb: ")
+    question = ("\nPlease enter your suburb: ")
     customer_details['suburb'] = check_string(question)
 
-    print("")
-    print("+×+ ",customer_details['suburb']," +×+ ")
-    print("")
-
-
+    print("\n+×+ ",customer_details['suburb']," +×+ ")
 
 # Album menu
 def menu():
         # Title header for the menu
-        print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+        print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
         print("+×+                              ALBUMS                              +×+")
         print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
         num_albums = 16
 
+        print("")
         for count in range (num_albums):
-            print("")
             print("-----------------------------------------------------------------------------")
             print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
-            print("-----------------------------------------------------------------------------")
+        print("-----------------------------------------------------------------------------")
 
 # Choose total number of albums - max 5
 # Album ordering - from menu - print each album with cost
@@ -259,8 +226,7 @@ def menu():
 def order_albums():
 
     # Title header for album ordering
-    print("")
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                            ORDER ALBUMS                          +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
@@ -271,20 +237,17 @@ def order_albums():
     menu_high = 16
 
     question = (f"Please enter a number between {low} and {num_high}: ")
-    print("")
-    print("You can order up to max 10 albums at a time")
+    print("\nYou can order up to max 10 albums at a time")
     print("How many albums do you want to order?")
 
     num_albums = val_int(low, num_high, question)
 
-    print("")
-    print("+×+  ", num_albums, "  +×+")
-    print("")
+    print("\n+×+  ", num_albums, "  +×+")
 
     #choose album from menu
     for item in range(num_albums):
         while num_albums > 0: 
-            print("Please choose your albums by entering the numbers from the menu")
+            print("\nPlease choose your albums by entering the numbers from the menu")
             question = (f"Please enter a number between {menu_low} and {menu_high}: ")
             album_ordered = val_int(menu_low, menu_high, question)
 
@@ -294,9 +257,7 @@ def order_albums():
             order_cost.append(album_prices[album_ordered])
             num_albums = num_albums-1
 
-            print("")
-            print("+×+","{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]),"+×+")
-            print("")
+            print("\n+×+","{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]),"+×+")
 
 # print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
 
@@ -304,36 +265,34 @@ def print_order(del_collect):
     print()
     total_cost = sum(order_cost)
 
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                          CUSTOMER DETAILS                        +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     if del_collect == "collect":
-            print("Your order is for: Pickup")
+            print("\nYour order is for: Pickup")
             print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
             print("You will recieve a text message when the item/s are ready for collection")
     
     elif del_collect == "delivery":
-        print("Your order is for: Delivery")
-        
-        
+        print("\nYour order is for: Delivery")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
-    print()
 
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                            ORDER DETAILS                         +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     count = 0
+    print()
     for item in order_list:
         print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))
         count = count+1
-    print()
         
 
 
     if del_collect == "delivery":
 
         sub_total = sum(order_cost)
-        print(f"Subtotal: ${sub_total:.2f}")
+        print(f"\nSubtotal: ${sub_total:.2f}")
 
         if len(order_list) < 5:
                 total_cost = total_cost + 9
@@ -353,11 +312,11 @@ def confirm_cancel():
 
     question = (f"Please enter a number between {low} and {high}: ")
 
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                          CONFIRM OR CANCEL                       +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
-    print("Please confirm your order")
+    print("\nPlease confirm your order")
 
     print("To confirm, please enter 1")
     print("To cancel, please enter 2")
@@ -366,30 +325,26 @@ def confirm_cancel():
     if confirm >= low and confirm <= high:
 
         if confirm == 1:
-            print("")
-            print("+×+  Order confirmed  +×+")
+            print("\n+×+  Order confirmed  +×+")
             print("+×+ Your order is now being prepared +×+")
-            print("")
             new_exit()
 
         elif confirm == 2:
-            print("")
-            print("+×+  Order cancelled  +×+")
+            print("\n+×+  Order cancelled  +×+")
             print("+×+ You can restart or exit the BOT +×+")
-            print("")
             new_exit()
                     
             
 # Option for new order or to exit
 def new_exit():
 
-    print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
+    print("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
     print("+×+                         NEW ORDER OR EXIT                        +×+")
     print("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+")
 
     question = (f"please enter a number between {low} and {high}: ")
 
-    print("Do you want to start another order or exit?")
+    print("\nDo you want to start another order or exit?")
     print("To start another order, please enter 1")
     print("To exit the BOT, please enter 2")
 
@@ -397,9 +352,7 @@ def new_exit():
     if confirm >= 1 and confirm <= 2:
 
         if confirm == 1:
-            print("")
-            print("+×+  New Order  +×+")
-            print("")
+            print("\n+×+  New Order  +×+")
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
@@ -407,9 +360,7 @@ def new_exit():
 
 
         elif confirm == 2:
-            print("")
-            print("+×+  Exit  +×+")
-            print("")
+            print("\n+×+  Exit  +×+")
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
