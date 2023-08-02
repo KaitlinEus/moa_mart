@@ -39,6 +39,7 @@ def not_blank(question):
         if response != "":
             return response
         else:
+            print("")
             print("+×+ Sorry this cannot be blank +×+")
 
 
@@ -49,7 +50,8 @@ def check_string(question):
         x = response.isalpha()
 
         if x == False:
-            print("input must only contain letters")
+            print("")
+            print("+×+ Sorry, you must only input letters +×+")
         else:
             return (response.title())
 
@@ -62,12 +64,13 @@ def val_int(low, high, question):
             num = int(input(question))
             if num >= low and num <= high:
                 return num
-            else: 
-                print(f"+×+ Number must be between {low} and {high} +×+ ")
+            else:
+                print("")
+                print("+×+ That is not a valid number +×+")
 
         except ValueError:
+            print("")
             print("+×+ That is not a valid number +×+")
-            print(f"+×+ Enter a number between {low} and {high} +×+ ")
 
 
 # Validates inputs to check if they are an integer with 7 to 10 digits
@@ -83,9 +86,11 @@ def check_phone(question, ph_low, ph_high):
             if count >= ph_low and count <= ph_high:
                 return num
             else:
-                print("NZ phone numbers have between 7 and 10 digits")
+                print("")
+                print("+×+ NZ phone numbers have between 7 and 10 digits +×+")
         except ValueError:
-            print("Please enter a number")
+            print("")
+            print("+×+ NZ phone numbers have between 7 and 10 digits +×+")
 
 #welcome message with random name
 def welcome():
@@ -101,7 +106,6 @@ name = (names[num])
 
 
 # Logo
-
 print(""" 
 
      __    __     ______     ______          __    __     ______     ______     ______  
@@ -112,12 +116,13 @@ print("""
       
       
       """)
-# welcome message 
 
+# welcome message 
 print("+×+ One Dream! Hello, we are TOMORROW X TOGETHER! +×+")
 print("+×+ Welcome to Moa Mart +×+")
 print("+×+ My name is",name, "+×+")
 print("+×+ I will be here to help you order your TXT album! +×+")
+print("")
 
 
 # menu for click and collect or delivery
@@ -126,7 +131,7 @@ def order_type():
     del_collect = ""
 
 
-    question = (f"Enter a number between {low} and {high} ")
+    question = (f"+×+ Please enter a number between {low} and {high} +×+ ")
 
     print("+×+ Is your order for click and collect or delivery? +×+")
 
@@ -137,12 +142,16 @@ def order_type():
     delivery = val_int(low, high, question)
 
     if delivery == 1:
+        print("")
         print("+×+  Delivery  +×+")
+        print("")
         delivery_info()
         del_collect = "delivery"
 
     elif delivery == 2:
+        print("")
         print("+×+  Click and Collect  +×+")
+        print("")
         candc_info()
         del_collect = "collect"
 
@@ -156,11 +165,16 @@ def candc_info():
     question = ("+×+ Please enter your name +×+ ")
     customer_details['name'] = check_string(question)
 
+    print("")
+    print("+×+ ",customer_details["name"]," +×+ ")
+    print("")
+
     question = ("+×+ Please enter your phone number +×+ ")
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
-
-    print("+×+ ",customer_details," +×+")
+    print("")
+    print("+×+ ",customer_details["phone"]," +×+ ")
+    print("")
 
 # Delivery information - name, phone, address ...
 
@@ -169,35 +183,48 @@ def delivery_info():
     question = ("+×+ Please enter your name +×+ ")
     customer_details['name'] = check_string(question)
 
+    print("")
     print("+×+ ",customer_details["name"]," +×+ ")
+    print("")
 
     question = ("+×+ Please enter your phone number +×+ ")
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
+    print("")
     print("+×+ ",customer_details["phone"]," +×+ ")
+    print("")
 
     question = ("+×+ Please enter your house number +×+ ")
     customer_details['house'] = not_blank(question)
 
+    print("")
     print("+×+ ",customer_details['house']," +×+ ")
+    print("")
 
     question = ("+×+ Please enter your street name +×+ ")
     customer_details['street'] = check_string(question)
 
+    print("")
     print("+×+ ",customer_details['street']," +×+ ")
+    print("")
 
     question = ("+×+ Please enter your suburb +×+ ")
     customer_details['suburb'] = check_string(question)
 
+    print("")
     print("+×+ ",customer_details['suburb']," +×+ ")
+    print("")
+
+
 
 # Pizza menu
-
 def menu():
         num_albums = 16
 
         for count in range (num_albums):
+            print("-----------------------------------------------------------------------------")
             print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
+            print("-----------------------------------------------------------------------------")
 
 # Choose total number of albums - max 5
 # Album ordering - from menu - print each album with cost
@@ -209,17 +236,22 @@ def order_albums():
     menu_low = 1
     menu_high = 16
 
-    question = (f"Enter a number between {low} and {num_high} ")
-    print("how many albums do you want to order?")
+    question = (f"+×+ Please enter a number between {low} and {num_high} +×+ ")
+    print("")
+    print("+×+ You can order up to max 10 albums at a time +×+")
+    print("+×+ How many albums do you want to order? +×+")
 
     num_albums = val_int(low, num_high, question)
 
-    #choose album from menu
+    print("")
+    print("+×+  ", num_albums, "  +×+")
+    print("")
 
+    #choose album from menu
     for item in range(num_albums):
         while num_albums > 0: 
-            print("Please choose your albums by entering the numbers from the menu")
-            question = (f"Enter a number between {menu_low} and {menu_high} ")
+            print("+×+ Please choose your albums by entering the numbers from the menu +×+")
+            question = (f"+×+ Please enter a number between {menu_low} and {menu_high} +×+ ")
             album_ordered = val_int(menu_low, menu_high, question)
 
         
@@ -227,7 +259,10 @@ def order_albums():
             order_list.append(album_names[album_ordered])
             order_cost.append(album_prices[album_ordered])
             num_albums = num_albums-1
+
+            print("")
             print("{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]))
+            print("")
 
 # print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
 
@@ -239,7 +274,7 @@ def print_order(del_collect):
     if del_collect == "collect":
             print("Your order is for: +×+  pickup  +×+")
             print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+")
-            print("You will recieve a text message when the item/s are ready for collection")
+            print("+×+You will recieve a text message when the item/s are ready for collection")
     
     elif del_collect == "delivery":
         print("Your order is for: +×+  delivery  +×+")
@@ -262,13 +297,14 @@ def print_order(del_collect):
         
     print("+×+ Total Cost +×+")
     print(f"+×+  ${total_cost:.2f}  +×+")
+    print("")
 
 
 # Ability to cancel or proceed with order
 
 def confirm_cancel():
 
-    question = (f"Enter a number between {low} and {high} ")
+    question = (f"+×+ Please enter a number between {low} and {high} +×+ ")
 
     print("+×+ Please confirm your order +×+")
 
@@ -279,23 +315,26 @@ def confirm_cancel():
     if confirm >= low and confirm <= high:
 
         if confirm == 1:
+            print("")
             print("+×+  Order confirmed  +×+")
             print("+×+ Your order is now being prepared +×+")
+            print("")
             new_exit()
 
         elif confirm == 2:
+            print("")
             print("+×+  Order cancelled  +×+")
             print("+×+ You can restart or exit the BOT +×+")
+            print("")
             new_exit()
                     
             
 # Option for new order or to exit
 def new_exit():
 
-    question = (f"Enter a number between {low} and {high} ")
+    question = (f"+×+ please enter a number between {low} and {high} +×+ ")
 
     print("+×+ Do you want to start another order or exit? +×+")
-
     print("+×+ To start another order, please enter 1 +×+")
     print("+×+ To exit the BOT, please enter 2 +×+")
 
@@ -303,7 +342,9 @@ def new_exit():
     if confirm >= 1 and confirm <= 2:
 
         if confirm == 1:
+            print("")
             print("+×+  New Order  +×+")
+            print("")
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
@@ -311,7 +352,9 @@ def new_exit():
 
 
         elif confirm == 2:
+            print("")
             print("+×+  Exit  +×+")
+            print("")
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
