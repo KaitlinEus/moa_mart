@@ -239,6 +239,7 @@ def print_order(del_collect):
     if del_collect == "collect":
             print("Your order is for: +×+  pickup  +×+")
             print(f"Customer Name: +×+  {customer_details['name']}  +×+ \nCustomer Phone Number: +×+  {customer_details['phone']}  +×+")
+            print("You will recieve a text message when the item/s are ready for collection")
     
     elif del_collect == "delivery":
         print("Your order is for: +×+  delivery  +×+")
