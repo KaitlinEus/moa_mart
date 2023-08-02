@@ -143,12 +143,12 @@ def order_type():
     delivery = val_int(low, high, question)
 
     if delivery == 1:
-        print("\n+×+  Delivery  +×+")
+        print(simple_colors.green("\n+×+ "),"Delivery",  simple_colors.green("+×+"))
         delivery_info()
         del_collect = "delivery"
 
     elif delivery == 2:
-        print("\n+×+  Click and Collect  +×+")
+        print(simple_colors.green("\n+×+ "),"Click and Collect",  simple_colors.green("+×+"))
         candc_info()
         del_collect = "collect"
 
@@ -167,12 +167,12 @@ def candc_info():
     question = ("\nPlease enter your name: ")
     customer_details['name'] = check_string(question)
 
-    print("\n+×+ ",customer_details["name"]," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details["name"], simple_colors.green("+×+"))
 
     question = ("\nPlease enter your phone number: ")
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
-    print("\n+×+ ",customer_details["phone"]," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details["phone"],simple_colors.green("+×+"))
 
 # Delivery information - name, phone, address ...
 
@@ -186,27 +186,27 @@ def delivery_info():
     question = ("\nPlease enter your name: ")
     customer_details['name'] = check_string(question)
 
-    print("\n+×+ ",customer_details["name"]," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details["name"],simple_colors.green("+×+"))
 
     question = ("\nPlease enter your phone number: ")
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
 
-    print("\n+×+ ",customer_details["phone"]," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details["phone"],simple_colors.green("+×+"))
 
     question = ("\nPlease enter your house number: ")
     customer_details['house'] = not_blank(question)
 
-    print("\n+×+ ",customer_details['house']," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details['house'],simple_colors.green("+×+"))
 
     question = ("\nPlease enter your street name: ")
     customer_details['street'] = check_string(question)
 
-    print("\n+×+ ",customer_details['street']," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details['street'],simple_colors.green("+×+"))
 
     question = ("\nPlease enter your suburb: ")
     customer_details['suburb'] = check_string(question)
 
-    print("\n+×+ ",customer_details['suburb']," +×+ ")
+    print(simple_colors.green("\n+×+ "),customer_details['suburb'],simple_colors.green("+×+"))
 
 # Album menu
 def menu():
@@ -220,7 +220,7 @@ def menu():
         print("")
         for count in range (num_albums):
             print("-----------------------------------------------------------------------------")
-            print("{} {} ${:.2f}".format(count+1, album_names[count], album_prices[count]))
+            print("{} {} ${:.2f}".format(simple_colors.red(count+1), album_names[count], album_prices[count]))
         print("-----------------------------------------------------------------------------")
 
 # Choose total number of albums - max 5
@@ -245,7 +245,7 @@ def order_albums():
 
     num_albums = val_int(low, num_high, question)
 
-    print("\n+×+  ", num_albums, "  +×+")
+    print(simple_colors.green("\n+×+ ")  ,num_albums, simple_colors.green(" +×+"))
 
     #choose album from menu
     for item in range(num_albums):
@@ -260,7 +260,7 @@ def order_albums():
             order_cost.append(album_prices[album_ordered])
             num_albums = num_albums-1
 
-            print("\n+×+","{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]),"+×+")
+            print(simple_colors.green("\n+×+ "),"{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]),simple_colors.green("+×+"))
 
 # print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
 
@@ -274,7 +274,7 @@ def print_order(del_collect):
     if del_collect == "collect":
             print("\nYour order is for: Pickup")
             print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
-            print("You will recieve a text message when the item/s are ready for collection")
+            print(simple_colors.magenta("You will recieve a text message when the item/s are ready for collection"))
     
     elif del_collect == "delivery":
         print("\nYour order is for: Delivery")
@@ -304,7 +304,7 @@ def print_order(del_collect):
             total_cost = total_cost + 0
             print("Delivery charge: $0 ")
 
-    print(f"Total Cost: ${total_cost:.2f}")
+    print(simple_colors.red(f"Total Cost: ${total_cost:.2f}", "bold"))
     
     print("")
 
@@ -328,13 +328,13 @@ def confirm_cancel():
     if confirm >= low and confirm <= high:
 
         if confirm == 1:
-            print("\n+×+  Order confirmed  +×+")
-            print("+×+ Your order is now being prepared +×+")
+            print(simple_colors.green("\n+×+ "),  "Order confirmed",simple_colors.green(" +×+"))
+            print(simple_colors.green("+×+ "), "Your order is now being prepared",simple_colors.green(" +×+"))
             new_exit()
 
         elif confirm == 2:
-            print("\n+×+  Order cancelled  +×+")
-            print("+×+ You can restart or exit the BOT +×+")
+            print(simple_colors.green("\n+×+ "),  "Order cancelled",simple_colors.green(" +×+"))
+            print(simple_colors.green("+×+ "), "You can restart or exit the BOT",simple_colors.green(" +×+"))
             new_exit()
                     
             
@@ -355,7 +355,7 @@ def new_exit():
     if confirm >= 1 and confirm <= 2:
 
         if confirm == 1:
-            print("\n+×+  New Order  +×+")
+            print(simple_colors.green("\n+×+ "),  "New Order",simple_colors.green(" +×+"))
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
@@ -363,7 +363,7 @@ def new_exit():
 
 
         elif confirm == 2:
-            print("\n+×+  Exit  +×+")
+            print(simple_colors.green("\n+×+ "),  "Exit",simple_colors.green(" +×+"))
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
