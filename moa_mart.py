@@ -40,7 +40,7 @@ def not_blank(question):
         if response != "":
             return response
         else:
-            print("\nSorry this cannot be blank")
+            print("\nSorry, this cannot be blank")
 
 
 # Validates to check if they are a string
@@ -101,26 +101,26 @@ def welcome():
 num = randint(0,9)
 name = (names[num])
 
-
+def welcome():
 # Logo
-print(simple_colors.yellow(""" 
+    print(simple_colors.yellow(""" 
 
-     __    __     ______     ______          __    __     ______     ______     ______  
-    /\ "-./  \   /\  __ \   /\  __ \        /\ "-./  \   /\  __ \   /\  == \   /\__  _\ 
-    \ \ \-./\ \  \ \ \/\ \  \ \  __ \       \ \ \-./\ \  \ \  __ \  \ \  __<   \/_/\ \/ 
-     \ \_\ \ \_\  \ \_____\  \ \_\ \_\       \ \_\ \ \_\  \ \_\ \_\  \ \_\ \_\    \ \_\ 
-      \/_/  \/_/   \/_____/   \/_/\/_/        \/_/  \/_/   \/_/\/_/   \/_/ /_/     \/_/
-      
-      
-      """))
+         __    __     ______     ______          __    __     ______     ______     ______  
+        /\ "-./  \   /\  __ \   /\  __ \        /\ "-./  \   /\  __ \   /\  == \   /\__  _\ 
+        \ \ \-./\ \  \ \ \/\ \  \ \  __ \       \ \ \-./\ \  \ \  __ \  \ \  __<   \/_/\ \/ 
+         \ \_\ \ \_\  \ \_____\  \ \_\ \_\       \ \_\ \ \_\  \ \_\ \_\  \ \_\ \_\    \ \_\ 
+          \/_/  \/_/   \/_____/   \/_/\/_/        \/_/  \/_/   \/_/\/_/   \/_/ /_/     \/_/
+        
+        
+        """))
 
-# Header for welcome
-print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-print(simple_colors.yellow("          +×+"),"One Dream! Hello, we are TOMORROW X TOGETHER!",simple_colors.yellow("+×+"))
-print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-# welcome message 
-print("\nWelcome to Moa Mart. My name is",name)
-print("I will be here to help you order your TXT album!")
+    # Header for welcome
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("          +×+"),"One Dream! Hello, we are TOMORROW X TOGETHER!",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    # welcome message 
+    print("\nWelcome to Moa Mart. My name is",name)
+    print("I will be here to help you order your TXT album!")
 
 
 
@@ -291,13 +291,14 @@ def print_order(del_collect):
     for item in order_list:
         print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))
         count = count+1
+
         
 
-
+    print()
     if del_collect == "delivery":
 
         sub_total = sum(order_cost)
-        print(f"\nSubtotal: ${sub_total:.2f}")
+        print(f"Subtotal: ${sub_total:.2f}")
 
         if len(order_list) < 5:
                 total_cost = total_cost + 9
@@ -368,6 +369,7 @@ def new_exit():
 
         elif confirm == 2:
             print(simple_colors.green("\n+×+ "),  "Exit",simple_colors.green(" +×+"))
+            print(simple_colors.green("\n+×+ "),  "Thank you for shopping at Moa Mart",simple_colors.green(" +×+"))
             order_list.clear()
             order_cost.clear()
             customer_details.clear()
