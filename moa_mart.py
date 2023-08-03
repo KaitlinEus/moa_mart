@@ -167,7 +167,7 @@ def candc_info():
     print(simple_colors.yellow("                    +×+"),"CLICK AND COLLECT DETAILS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
-    question = ("\nPlease enter your name: ")
+    question = ("\nPlease enter your first name: ")
     customer_details['name'] = check_string(question)
 
     print(simple_colors.green("\n+×+ "),customer_details["name"], simple_colors.green("+×+"))
@@ -186,7 +186,7 @@ def delivery_info():
     print(simple_colors.yellow("                        +×+"),"DELIVERY DETAILS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
-    question = ("\nPlease enter your name: ")
+    question = ("\nPlease enter your first name: ")
     customer_details['name'] = check_string(question)
 
     print(simple_colors.green("\n+×+ "),customer_details["name"],simple_colors.green("+×+"))
@@ -200,6 +200,11 @@ def delivery_info():
     customer_details['house'] = not_blank(question)
 
     print(simple_colors.green("\n+×+ "),customer_details['house'],simple_colors.green("+×+"))
+
+    question = ("\nPlease enter your street type: ")
+    customer_details['road'] = check_string(question)
+
+    print(simple_colors.green("\n+×+ "),customer_details['road'],simple_colors.green("+×+"))
 
     question = ("\nPlease enter your street name: ")
     customer_details['street'] = check_string(question)
@@ -280,7 +285,7 @@ def print_order(del_collect):
     
     elif del_collect == "delivery":
         print("\nYour order is for: Delivery")
-        print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['road']} {customer_details['suburb']}")
 
 
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
