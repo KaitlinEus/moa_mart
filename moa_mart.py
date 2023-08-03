@@ -277,7 +277,6 @@ def print_order(del_collect):
     if del_collect == "collect":
             print("\nYour order is for: Pickup")
             print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
-            print(simple_colors.magenta("You will recieve a text message when the item/s are ready for collection"))
     
     elif del_collect == "delivery":
         print("\nYour order is for: Delivery")
@@ -308,8 +307,10 @@ def print_order(del_collect):
             print("Delivery charge: $0 ")
 
     print(simple_colors.red(f"Total Cost: ${total_cost:.2f}", "bold"))
+
+    if del_collect == "collect":
+        print(simple_colors.magenta("\nYou will recieve a text message when the item/s are ready for collection"))
     
-    print("")
 
 
 # Ability to cancel or proceed with order
