@@ -5,6 +5,8 @@ from random import randint
 import sys
 import simple_colors
 
+# IMPROTANT NOTE: Please download simple_colors by pasting the following into terminal: pip3 install simple-colors    OR: pip install simple-colors
+
 # Constants
 low = 1
 high =2
@@ -258,7 +260,7 @@ def order_albums():
     #choose album from menu
     for item in range(num_albums):
         while num_albums > 0: 
-            print("\nPlease choose your albums by entering the numbers from the menu")
+            print("\nPlease choose your albums", simple_colors.magenta("one at a time"), "by entering the numbers from the menu")
             question = (f"Please enter a number between {menu_low} and {menu_high}: ")
             album_ordered = val_int(menu_low, menu_high, question)
 
