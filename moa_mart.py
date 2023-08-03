@@ -64,10 +64,10 @@ def val_int(low, high, question):
             if num >= low and num <= high:
                 return num
             else:
-                print("\nThat is not a valid number")
+                print("\nSorry, that is not a valid number")
 
         except ValueError:
-            print("\nThat is not a valid number")
+            print("\nSorry, that is not a valid number")
 
 
 # Validates inputs to check if they are an integer with 7 to 10 digits
@@ -83,9 +83,11 @@ def check_phone(question, ph_low, ph_high):
             if count >= ph_low and count <= ph_high:
                 return num
             else:
-                print("\nNZ phone numbers have between 7 and 10 digits")
+                print("\nSorry, that is not a valid phone number")
+                print("NZ phone numbers have between 7 and 10 digits")
         except ValueError:
-            print("\nNZ phone numbers have between 7 and 10 digits")
+            print("\nSorry, that is not a valid phone number")
+            print("NZ phone numbers have between 7 and 10 digits")
 
 #welcome message with random name
 def welcome():
@@ -145,6 +147,7 @@ def order_type():
     if delivery == 1:
         print(simple_colors.green("\n+×+ "),"Delivery",  simple_colors.green("+×+"))
         delivery_info()
+        print(simple_colors.magenta("Please note that a delivery fee of $9 is applied when you order less than 5 albums"))
         del_collect = "delivery"
 
     elif delivery == 2:
