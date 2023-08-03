@@ -146,8 +146,8 @@ def order_type():
 
     if delivery == 1:
         print(simple_colors.green("\n+×+ "),"Delivery",  simple_colors.green("+×+"))
-        delivery_info()
         print(simple_colors.magenta("Please note that a delivery fee of $9 is applied when you order less than 5 albums"))
+        delivery_info()
         del_collect = "delivery"
 
     elif delivery == 2:
