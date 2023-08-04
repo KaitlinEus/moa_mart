@@ -371,19 +371,29 @@ def order_albums():
     print(simple_colors.green("\n+×+ ")  ,num_albums, simple_colors.green(" +×+"))
 
     #choose album from menu
-    
+
+    # code will count though the number of albums chosen
     for item in range(num_albums):
+        # sets while loop where num_albums is greater than 0
         while num_albums > 0: 
+            # print statement for intstructions 
             print("\nPlease choose your albums", simple_colors.magenta("one at a time"), "by entering the numbers from the menu")
+            # question which asks user to enter a num between 1 and 16
             question = (f"Please enter a number between {menu_low} and {menu_high}: ")
+            #prints question and asks for input(integer). sends input through int validator
             album_ordered = val_int(menu_low, menu_high, question)
 
-        
+           
+            # Adjust the Album index number to match the list index number
             album_ordered = album_ordered -1
+            # Add the chosen albums to the order list
             order_list.append(album_names[album_ordered])
+            # add the chosen albums to the cost list
             order_cost.append(album_prices[album_ordered])
+            # album_ordered decreases each time by one everytime a num is inputed - makes sure user only orders the amount of albums they wanted
             num_albums = num_albums-1
-
+            
+            #prints chosen album and price
             print(simple_colors.green("\n+×+ "),"{} ${:.2f}" .format(album_names[album_ordered],album_prices[album_ordered]),simple_colors.green("+×+"))
 
 # print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
