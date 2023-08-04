@@ -338,27 +338,40 @@ def menu():
 # Album ordering - from menu - print each album with cost
 
 def order_albums():
-
+    '''
+    Purpose: Allows the user to order merchandise items by specifying the quantity and choosing from a catalog.
+    Parameters: None
+    Returns: None
+    '''
     # Title header for album ordering
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                          +×+"),"ORDER ALBUMS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
-    #ask for total number of albums for order
+    # sets num of albums to 0
     num_albums = 0
+
+    # constants used in num_albums
+    # max num of albums allowed to order is set to 10
     num_high = 10
+    # lowest allowed album number in the menu
     menu_low = 1
+    # highest allowed album number in the menu
     menu_high = 16
 
+    #ask for total number of albums for order
+    # question which asks to enter a number between 1 and 10
     question = (f"Please enter a number between {low} and {num_high}: ")
     print("\nYou can order up to max 10 albums at a time")
     print("How many albums do you want to order?")
 
+    #prints question and asks for input(integer). sends input through int validator
     num_albums = val_int(low, num_high, question)
-
+    # prints num of albums 
     print(simple_colors.green("\n+×+ ")  ,num_albums, simple_colors.green(" +×+"))
 
     #choose album from menu
+    
     for item in range(num_albums):
         while num_albums > 0: 
             print("\nPlease choose your albums", simple_colors.magenta("one at a time"), "by entering the numbers from the menu")
