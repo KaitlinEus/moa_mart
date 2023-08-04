@@ -190,6 +190,11 @@ print("I will be here to help you order your TXT album!")
 # menu for click and collect or delivery
 
 def order_type():
+    '''
+    Purpose: Prompts the user to select between home delivery or click & collect for their order and gathers the corresponding information.
+    Parameters: None
+    Returns: del_click: A string indicating the delivery option chosen ("delivery" for delivery, "click" for click & collect).
+    '''
     # Sets del_collect to empty
     del_collect = ""
 
@@ -234,20 +239,26 @@ def order_type():
 
 # Click and collect information - name and phone
 def candc_info():
+    '''
+    Purpose: Collects the customer's name and phone number for Click & Collect service.
+    Parameters: None
+    Returns: None
+    '''
     # Title header for click and collect information
-
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                    +×+"),"CLICK AND COLLECT DETAILS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-
+    # Question which asks for first name 
     question = ("\nPlease enter your first name: ")
+    #Prints quetsion and asks for input(string). sends input through string validator and stores input in customer details dictionary under name
     customer_details['name'] = check_string(question)
-
+    # prints customer name
     print(simple_colors.green("\n+×+ "),customer_details["name"], simple_colors.green("+×+"))
-
+    #question which asks for phone number. 
     question = ("\nPlease enter your phone number: ")
+    # prints question and asks for input(int). sends input through ph number validator and stores input in custoemr detials dictionary under phone
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
-
+    #prints customer ph num
     print(simple_colors.green("\n+×+ "),customer_details["phone"],simple_colors.green("+×+"))
 
 # Delivery information - name, phone, address ...
