@@ -50,7 +50,7 @@ customer_details = {}
 # Validates inputs to check if they are blank
 def not_blank(question):
     '''
-    Purpose: Validates user input to ensure it is not blank. If the input is blank, it prompts the user to enter a non-blank value.
+    Purpose: Makes sure that user input is not blank
     Parameters: Question
     Returns: The validated non-blank value as a string.(response.title()
     '''
@@ -66,9 +66,8 @@ def not_blank(question):
 # Validates string inputs to check if they are a string 
 def check_string(question):
     '''
-    Purpose: Validates user input as a string containing only alphabetic characters.
-    Parameters:
-    - question: The prompt message asking the user to enter a string.
+    Purpose: Makes sure user input is only alphabetical characters
+    Parameters: question
     Returns: The validated string as a title-cased version if it consists only of alphabetic characters. response.title()
     '''
 
@@ -89,12 +88,9 @@ def check_string(question):
 # Validates inputs to check if they are an integer
 def val_int(low, high, question):
     '''
-    Purpose: Validates user input as a phone number within a specified range of digit counts.
-    Parameters:
-    - question: The prompt message asking the user to enter a phone number.
-    - PH_LOW: The lower boundary of the desired range.
-    - PH_HIGH: The upper boundary of the desired range.
-    Returns: The validated phone number. num
+    Purpose: Makes sure that user input as an integer within a specified range.
+    Parameters: question, low, high
+    Returns: The validated integer input within the specified range. num
     '''
     # Sets up while loop
     while True: 
@@ -116,12 +112,9 @@ def val_int(low, high, question):
 # Validates inputs to check if they are an integer with 7 to 10 digits
 def check_phone(question, ph_low, ph_high):
     '''
-    Purpose: Validates user input as a phone number within a specified range of digit counts.
-    Parameters:
-    - question: The prompt message asking the user to enter a phone number.
-    - PH_LOW: The lower boundary of the desired range.
-    - PH_HIGH: The upper boundary of the desired range.
-    Returns: The validated phone number as a string if it consists of digits and its length is within the specified range. str(num)
+    Purpose: Makes sure that user input is only an integer within a spcified range of digits
+    Parameters: questions, ph_low, ph_high
+    Returns: The validated phone number as a string if it consists of digits and its length is within the specified range. num
     '''
     # Sets up while loop
     while True:
@@ -191,9 +184,9 @@ print("I will be here to help you order your TXT album!")
 
 def order_type():
     '''
-    Purpose: Prompts the user to select between home delivery or click & collect for their order and gathers the corresponding information.
+    Purpose: Makes user choose order type
     Parameters: None
-    Returns: del_click: A string indicating the delivery option chosen ("delivery" for delivery, "click" for click & collect).
+    Returns: del_collect: A string indicating the delivery option chosen ("delivery" for delivery, "click" for click & collect).
     '''
     # Sets del_collect to empty
     del_collect = ""
@@ -240,7 +233,7 @@ def order_type():
 # Click and collect information - name and phone
 def candc_info():
     '''
-    Purpose: Collects the customer's name and phone number for Click & Collect service.
+    Purpose: Collects the customer's information (name and phone number) which will be used for click and collect
     Parameters: None
     Returns: None
     '''
@@ -265,7 +258,7 @@ def candc_info():
 
 def delivery_info():
     '''
-    Purpose: Collects the customer's name, phone number, house number, street name, and suburb for home delivery.
+    Purpose: Collects the customer's information (name, phone number, house number, street name, and suburb) which will be used for delivey
     Parameters: None
     Returns: None
     '''
@@ -313,7 +306,7 @@ def delivery_info():
 # Album menu
 def menu():
     '''
-    Purpose: Collects the customer's name and phone number for Click & Collect service.
+    Purpose: Displays the menu of albums - album names corresponds with item number and price
     Parameters: None
     Returns: None
     '''
@@ -339,7 +332,7 @@ def menu():
 
 def order_albums():
     '''
-    Purpose: Allows the user to order merchandise items by specifying the quantity and choosing from a catalog.
+    Purpose: Lets users order albums items by specifying the quantity and choosing from a menu.
     Parameters: None
     Returns: None
     '''
@@ -400,8 +393,8 @@ def order_albums():
 
 def print_order(del_collect):
     '''
-    Purpose: Print the order details, including customer information, items in the cart, and order cost details.
-    Parameters: del_click: Indicates the delivery option chosen by the customer ("click" for Click & Collect, "delivery" for delivery).
+    Purpose: To display customer information, order detials and order costs
+    Parameters: del_collect
     Returns: None
     '''
 
@@ -474,7 +467,7 @@ def print_order(del_collect):
 
 def confirm_cancel():
     '''   
-    Purpose: Prompt the user to confirm or cancel an order and take appropriate actions based on the user's input.
+    Purpose: allows user to choose to confirm or cancel their order
     Parameters: None
     Returns: None
     '''
@@ -511,7 +504,7 @@ def confirm_cancel():
 # Option for new order or to exit
 def new_exit():
     '''
-    Purpose: Starts a new order or exits the bot based on user input. It clears the necessary data and invokes the appropriate actions based on the user's choice.
+    Purpose: allows user to start a new order or exit the BOT
     Parameters: None
     Returns: None
     '''
@@ -565,7 +558,7 @@ def new_exit():
 def main():
      
     '''
-    Purpose: To generate a random name from the list and print out a welcome message
+    Purpose: To run all functions
     Parameters: None
     Returns: None
     '''
