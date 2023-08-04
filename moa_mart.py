@@ -510,35 +510,55 @@ def confirm_cancel():
             
 # Option for new order or to exit
 def new_exit():
+    '''
+    Purpose: Starts a new order or exits the bot based on user input. It clears the necessary data and invokes the appropriate actions based on the user's choice.
+    Parameters: None
+    Returns: None
+    '''
 
+    # Header title for new order or exit
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                       +×+"),"NEW ORDER OR EXIT",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
+    # question that asks for a num between 1 and 2
     question = (f"please enter a number between {low} and {high}: ")
 
+    # print statements which gives users instructions
     print("\nDo you want to start another order or exit?")
     print("To start another order, please enter 1")
     print("To exit the BOT, please enter 2")
 
+    # prints question and asks for input(int). sends input through to int validator
     confirm = val_int(low, high, question)
-    if confirm >= 1 and confirm <= 2:
 
-        if confirm == 1:
-            print(simple_colors.green("\n+×+ "),  "New Order",simple_colors.green(" +×+"))
-            order_list.clear()
-            order_cost.clear()
-            customer_details.clear()
-            main()
+    # if user inputs 1 - user chose new order
+    if confirm == 1:
+        #prints new order
+        print(simple_colors.green("\n+×+ "),  "New Order",simple_colors.green(" +×+"))
+        #clears data in order list
+        order_list.clear()
+        #clears data in order cost
+        order_cost.clear()
+        #clears data in customer details dictionary
+        customer_details.clear()
+        #opens and starts main - the whole program restarts from the start
+        main()
 
-
-        elif confirm == 2:
-            print(simple_colors.green("\n+×+ "),  "Exit",simple_colors.green(" +×+"))
-            print(simple_colors.green("\n+×+ "),  "Thank you for shopping at Moa Mart",simple_colors.green(" +×+"))
-            order_list.clear()
-            order_cost.clear()
-            customer_details.clear()
-            sys.exit()
+    # if user inputs 2 - user chose to exit
+    elif confirm == 2:
+        #prints exit
+        print(simple_colors.green("\n+×+ "),  "Exit",simple_colors.green(" +×+"))
+        #prints thank you message
+        print(simple_colors.green("\n+×+ "),  "Thank you for shopping at Moa Mart",simple_colors.green(" +×+"))
+        #clears data in order list
+        order_list.clear()
+        #clears data in order cost
+        order_cost.clear()
+        #clears data in customer details dictionary
+        customer_details.clear()
+        #program stops
+        sys.exit()
                  
 # Main function
 
