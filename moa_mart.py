@@ -604,13 +604,15 @@ def new_exit():
 
     # if user inputs 2 - user chose to exit
     elif confirm == 2:
-        #prints exit
-        print(simple_colors.green("\n+×+ "),  "Exit",simple_colors.green(" +×+"))
-        #prints thank you message
-        print(simple_colors.green("\n+×+ "),  "Thank you for shopping at Moa Mart",simple_colors.green(" +×+"))
-        #clears data in order list
+        # prints exit
+        print(simple_colors.green("\n+×+ "),
+              "Exit", simple_colors.green(" +×+"))
+        # prints thank you message
+        print(simple_colors.green("\n+×+ "),
+              "Thank you for shopping at Moa Mart", simple_colors.green(" +×+"))
+        # clears data in order list
         order_list.clear()
-        #clears data in order cost
+        # clears data in order cost
         order_cost.clear()
         # clears data in customer details dictionary
         customer_details.clear()
