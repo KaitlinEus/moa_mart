@@ -399,48 +399,73 @@ def order_albums():
 # print order out - inlcuding: if order is click and collect or delivery, names and prices of albums, and total cost including any delivery charge
 
 def print_order(del_collect):
-    print()
+    '''
+    Purpose: Print the order details, including customer information, items in the cart, and order cost details.
+    Parameters: del_click: Indicates the delivery option chosen by the customer ("click" for Click & Collect, "delivery" for delivery).
+    Returns: None
+    '''
+
+    #makes total_cost equal to the sum of the costs of all the ordered albums
     total_cost = sum(order_cost)
 
+    #Customer details header title
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                        +×+"),"CUSTOMER DETAILS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+
+    #if the user initially chose click and collect
     if del_collect == "collect":
+            #prints messages that states type of order and cutstomer detials that was stored in the customer detials dictionary
             print("\nYour order is for: Pickup")
             print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
     
+    #if the user intially chose delivery
     elif del_collect == "delivery":
+        # prints messages that states type of order and customer details that was stored in the customer details dictionary
         print("\nYour order is for: Delivery")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['road']} {customer_details['suburb']}")
 
-
+    # header title for order details
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                         +×+"),"ORDER DETAILS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    #sets count to 0
     count = 0
+    #prints blank for spacing
     print()
+    # the items stored in the order list
     for item in order_list:
+        #prints in a formatted way
         print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))
+        # Adds one to the counter variable
         count = count+1
 
-        
-
+    # prints blank for spacing
     print()
+    #if user chose delivery
     if del_collect == "delivery":
-
+        # makes subtotal equal to the sum of the costs of all the ordered albums
         sub_total = sum(order_cost)
+        #prints subtotal
         print(f"Subtotal: ${sub_total:.2f}")
-
+        #if user ordered less than 5 albums
         if len(order_list) < 5:
+                #delivery fee of $9 is added to total cost
                 total_cost = total_cost + 9
+                #prints deliver charge
                 print("Delivery charge: $9 ")
+        #if user ordered more than 5
         else:
+             #delivery fee of $9 is added to total cost
             total_cost = total_cost + 0
+            #prints delivery caharge
             print("Delivery charge: $0 ")
-
+    # if user chose either delivery or click and collect, total cost is printed in - it is formatted
     print(simple_colors.red(f"Total Cost: ${total_cost:.2f}", "bold"))
 
+    # if user chose click and collect
     if del_collect == "collect":
+        # print statement that tells user info
         print(simple_colors.magenta("\nYou will recieve a text message when the item/s are ready for collection"))
     
 
