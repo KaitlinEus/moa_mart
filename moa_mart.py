@@ -1,22 +1,34 @@
 # Moa Mart program
+#Program for ordering Tomorrow x Together (TXT) albums - targeted towards TXT fans
 
+
+# Imports of modules from pythons library 
+# Module that allows program to perform tasks related to randomness
 import random
-from random import randint
-import sys
-import simple_colors
+# Imports the radint funciton from the random module - allows for generating random integers within a specific range
+from random import randint 
 
+# Module for various system-level operations and to access command-line arguments, interact with the runtime environment, and control the Python interpreter itself.
+import sys
+
+# Imports of modules that are not in pythons library
+# Module that allows program to print text in color
+import simple_colors
 # IMPROTANT NOTE: Please download simple_colors by pasting the following into terminal: pip3 install simple-colors    OR: pip install simple-colors
 
-# Constants
-low = 1
+# Constants - sets the values of variables universally
+# Used for choosing between 2 options 
+low = 1 
 high =2
+# Used for the min and max digits able to input for phone number
 ph_low = 7
 ph_high = 10
 
-# List of random names
+# List of random names - Names used are from the KPOP boy group TXT
 names = ["Yeonjun", "Taehyun", "Huening Kai", "Beomgyu", "Soobin", "Steve", "Daniel ", "Ben", "Terry", "Hyuka"]
 
-# list of album names and prices
+# List of album names and prices that the store offers for sale
+# Album names. There are 16 albums in total
 album_names = ["Mini Album 'The Dream Chapter: Star'", "Mini Album 'Minisode 1 : Blue Hour' AR ver", "Mini Album 'Minisode 1 : Blue Hour' R ver", 
                "Mini Album 'Minisode 1 : Blue Hour' VR ver", "Mini Album 'The Dream Chapter : Eternity' Port ver", "Mini Album 'The Dream Chapter : Eternity' Starboard ver", 
                "Full Album 'The Dream Chapter : Magic' Sanctuary ver", "Full Album 'The Dream Chapter : Magic' Arcadia ver", 
@@ -24,6 +36,7 @@ album_names = ["Mini Album 'The Dream Chapter: Star'", "Mini Album 'Minisode 1 :
                "Mini Album 'Minisode 2: Thursday's Child' Hate ver", "Mini Album 'Minisode 2: Thursday's Child' End ver", "Mini Album 'Minisode 2: Thursday's Child' Mess ver", 
                "Mini Album 'The Name Chapter: TEMPTATION' Daydream ver", "Mini Album 'The Name Chapter: TEMPTATION' Nightmare ver", 
                "5th Mini Album 'The Name Chapter: TEMPTATION' Farewell ver"]
+# Album prices
 album_prices = [59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 59.99, 64.99, 64.99, 58.99, 58.99, 58.99, 45.99, 45.99, 45.99]
 
 #list to store ordered albums
@@ -31,134 +44,192 @@ order_list =[]
 #list to store album prices
 order_cost =[]
 
-# customer detailes dictionary
+# customer details dictionary - stores customer details from that the customer inputs
 customer_details = {}
 
 # Validates inputs to check if they are blank
 def not_blank(question):
+    '''
+    Purpose: Validates user input to ensure it is not blank. If the input is blank, it prompts the user to enter a non-blank value.
+    Parameters: Question
+    Returns: The validated non-blank value as a string.(response.title()
+    '''
     valid = False
     while not valid: 
         response = input(question)
         if response != "":
-            return response
+            return response.title()
         else:
             print("\nSorry, this cannot be blank")
 
 
-# Validates to check if they are a string
+# Validates string inputs to check if they are a string 
 def check_string(question):
-    while True:
-        response = input(question)
-        x = response.isalpha()
+    '''
+    Purpose: Validates user input as a string containing only alphabetic characters.
+    Parameters:
+    - question: The prompt message asking the user to enter a string.
+    Returns: The validated string as a title-cased version if it consists only of alphabetic characters. response.title()
+    '''
 
+    # Sets up while loop
+    while True:
+         # Prints questions and asks for input(string)
+        response = input(question)
+        # Checks that the input consists of only alphabetical characters - sets x to true if input passes requirements
+        x = response.isalpha()
+       
+       # If x is False, an error message is printed
         if x == False:
             print("\nSorry, you must only input letters")
         else:
-            return (response.title())
+            # If true, returns the response in the title class
+            return response.title()
 
 # Validates inputs to check if they are an integer
 def val_int(low, high, question):
-
-
+    '''
+    Purpose: Validates user input as a phone number within a specified range of digit counts.
+    Parameters:
+    - question: The prompt message asking the user to enter a phone number.
+    - PH_LOW: The lower boundary of the desired range.
+    - PH_HIGH: The upper boundary of the desired range.
+    Returns: The validated phone number. num
+    '''
+    # Sets up while loop
     while True: 
         try:
+            # Prints question and asks for input(integer)
             num = int(input(question))
+            # if num is inside or queal to one of the numberic boundreis it will retuern num
             if num >= low and num <= high:
                 return num
             else:
+                # If num does not meet requirements as it is outside of the boundries, an error message is printed
                 print("\nSorry, that is not a valid number")
 
         except ValueError:
+            # If num does not meet requirements as it is not a integer, an error message is printed
             print("\nSorry, that is not a valid number")
 
 
 # Validates inputs to check if they are an integer with 7 to 10 digits
 def check_phone(question, ph_low, ph_high):
+    '''
+    Purpose: Validates user input as a phone number within a specified range of digit counts.
+    Parameters:
+    - question: The prompt message asking the user to enter a phone number.
+    - PH_LOW: The lower boundary of the desired range.
+    - PH_HIGH: The upper boundary of the desired range.
+    Returns: The validated phone number as a string if it consists of digits and its length is within the specified range. str(num)
+    '''
+    # Sets up while loop
     while True:
         try:
+            # Prints question and ask for input(integer)
             num = int(input(question))
+            # Makes test_num equal to num - This allows the program to pull apart the number
             test_num = num
             count = 0
+            # Sets up another while loop - test_num is greater than 0
             while test_num > 0:
+                # test_num is divided by 10 to remove the last digit 
                 test_num = test_num//10
+                # Adds 1 to the count
                 count = count+1
+            # Checks if count meets the requirements - Must be equal or greater than ph_low (7) and equal or lesser than ph_high (10) 
             if count >= ph_low and count <= ph_high:
+                # Returns num
                 return num
+            # if count does not meet requirements - not >= 7 and <= 10, an error message is printed and asks for input again
             else:
                 print("\nSorry, that is not a valid phone number")
                 print("NZ phone numbers have between 7 and 10 digits")
+        # if count does not meet requirements - not an integer, an error message is printed and asks for input again
         except ValueError:
             print("\nSorry, that is not a valid phone number")
             print("NZ phone numbers have between 7 and 10 digits")
 
-#welcome message with random name
+# Welcome message with random name
 def welcome():
 
     '''
-    Purpose: To run all functions
+    Purpose: To generate a random name for the list of names and print out a welcome message
     Parameters: None
     Returns: None
     '''
 
+# Sets num to randint which returns an integer number from a spcified range of numbers - 0 to 9
 num = randint(0,9)
+# Makes name equal to a name that corresponds with the a number chosen from num
 name = (names[num])
 
-def welcome():
 # Logo
-    print(simple_colors.yellow(""" 
+print(simple_colors.yellow(""" 
 
-         __    __     ______     ______          __    __     ______     ______     ______  
-        /\ "-./  \   /\  __ \   /\  __ \        /\ "-./  \   /\  __ \   /\  == \   /\__  _\ 
-        \ \ \-./\ \  \ \ \/\ \  \ \  __ \       \ \ \-./\ \  \ \  __ \  \ \  __<   \/_/\ \/ 
-         \ \_\ \ \_\  \ \_____\  \ \_\ \_\       \ \_\ \ \_\  \ \_\ \_\  \ \_\ \_\    \ \_\ 
-          \/_/  \/_/   \/_____/   \/_/\/_/        \/_/  \/_/   \/_/\/_/   \/_/ /_/     \/_/
-        
-        
-        """))
+       __    __     ______     ______          __    __     ______     ______     ______  
+      /\ "-./  \   /\  __ \   /\  __ \        /\ "-./  \   /\  __ \   /\  == \   /\__  _\ 
+      \ \ \-./\ \  \ \ \/\ \  \ \  __ \       \ \ \-./\ \  \ \  __ \  \ \  __<   \/_/\ \/ 
+       \ \_\ \ \_\  \ \_____\  \ \_\ \_\       \ \_\ \ \_\  \ \_\ \_\  \ \_\ \_\    \ \_\ 
+        \/_/  \/_/   \/_____/   \/_/\/_/        \/_/  \/_/   \/_/\/_/   \/_/ /_/     \/_/
+    
+    
+    """))
 
-    # Header for welcome
-    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-    print(simple_colors.yellow("          +×+"),"One Dream! Hello, we are TOMORROW X TOGETHER!",simple_colors.yellow("+×+"))
-    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-    # welcome message 
-    print("\nWelcome to Moa Mart. My name is",name)
-    print("I will be here to help you order your TXT album!")
+# Header for welcome
+print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+print(simple_colors.yellow("          +×+"),"One Dream! Hello, we are TOMORROW X TOGETHER!",simple_colors.yellow("+×+"))
+print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+
+# welcome message - prints with random name 
+print("\nWelcome to Moa Mart. My name is",name)
+print("I will be here to help you order your TXT album!")
 
 
 
 # menu for click and collect or delivery
 
 def order_type():
+    # Sets del_collect to empty
     del_collect = ""
-
-    question = (f"Please enter a number between {low} and {high}: ")
 
     # Title header for click and collect
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                  +×+"),"DELIVERY OR CLICK AND COLLECT",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
+    # Question asks for a number between 1 and 2
+    question = (f"Please enter a number between {low} and {high}: ")
 
+    # Print statement that gives intructions
     print("\nIs your order for click and collect or delivery?")
     print("For delivery please enter 1")
     print("For click and collect please enter 2")
 
-
+    # Prints question and asks for input(integer) - sends input through integer validator
     delivery = val_int(low, high, question)
 
+    # If user input is 1 - user chooses deilvery
     if delivery == 1:
+        # print statement that lets user knows that they have chosen delivery
         print(simple_colors.green("\n+×+ "),"Delivery",  simple_colors.green("+×+"))
+        # Print statement that lets user know about delivery fee
         print(simple_colors.magenta("Please note that a delivery fee of $9 is applied when you order less than 5 albums"))
-        delivery_info()
+        # Sets del_collect to delivery
         del_collect = "delivery"
-
+        # Opens and runs the delivery function
+        delivery_info()
+        
+    # If user input is 2 - user chooses click and collect
     elif delivery == 2:
+        # print statement that lets user know they have chosen click and collect
         print(simple_colors.green("\n+×+ "),"Click and Collect",  simple_colors.green("+×+"))
-        candc_info()
+        #sets del_collect to collect
         del_collect = "collect"
-
-    return del_collect
-
+        # opens and runs the click and collect function
+        candc_info()
+    # Returns information back to del_collect   
+    return del_collect 
 
 
 # Click and collect information - name and phone
