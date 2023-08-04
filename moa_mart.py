@@ -473,31 +473,40 @@ def print_order(del_collect):
 # Ability to cancel or proceed with order
 
 def confirm_cancel():
-
-    question = (f"Please enter a number between {low} and {high}: ")
-
+    '''   
+    Purpose: Prompt the user to confirm or cancel an order and take appropriate actions based on the user's input.
+    Parameters: None
+    Returns: None
+    '''
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                        +×+"),"CONFIRM OR CANCEL",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
-    print("\nPlease confirm your order")
+    # question which asks to enter a num between 1 and 2
+    question = (f"Please enter a number between {low} and {high}: ")
 
+    # print statements which explain the instructions
+    print("\nPlease confirm your order")
     print("To confirm, please enter 1")
     print("To cancel, please enter 2")
 
+    # prints question and asks for input(int). sends input to int validator
     confirm = val_int(low, high, question)
-    if confirm >= low and confirm <= high:
+    # if user inputs 1 - user chooses to confirm
+    if confirm == 1:
+        #print statement telling user they have confirmed and that their order is now being prepared
+        print(simple_colors.green("\n+×+ "),  "Order confirmed",simple_colors.green(" +×+"))
+        print(simple_colors.green("+×+ "), "Your order is now being prepared",simple_colors.green(" +×+"))
+        #opens and starts the new_exit function
+        
+    elif confirm == 2:
+        # prints statement telling user they have cancelled and gives further info
+        print(simple_colors.green("\n+×+ "),  "Order cancelled",simple_colors.green(" +×+"))
+        print(simple_colors.green("+×+ "), "You can restart or exit the BOT",simple_colors.green(" +×+"))
 
-        if confirm == 1:
-            print(simple_colors.green("\n+×+ "),  "Order confirmed",simple_colors.green(" +×+"))
-            print(simple_colors.green("+×+ "), "Your order is now being prepared",simple_colors.green(" +×+"))
-            new_exit()
+    # opens and starts the new_exit function
+    new_exit()
 
-        elif confirm == 2:
-            print(simple_colors.green("\n+×+ "),  "Order cancelled",simple_colors.green(" +×+"))
-            print(simple_colors.green("+×+ "), "You can restart or exit the BOT",simple_colors.green(" +×+"))
-            new_exit()
-                    
             
 # Option for new order or to exit
 def new_exit():
