@@ -264,56 +264,75 @@ def candc_info():
 # Delivery information - name, phone, address ...
 
 def delivery_info():
-
+    '''
+    Purpose: Collects the customer's name, phone number, house number, street name, and suburb for home delivery.
+    Parameters: None
+    Returns: None
+    '''
     # Title header for delivery information
     print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
     print(simple_colors.yellow("                        +×+"),"DELIVERY DETAILS",simple_colors.yellow("+×+"))
     print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-
+    # question which asks for first name
     question = ("\nPlease enter your first name: ")
+    #Prints quetsion and asks for input(string). sends input through string validator and stores input in customer details dictionary under name
     customer_details['name'] = check_string(question)
-
+    # prints customer name
     print(simple_colors.green("\n+×+ "),customer_details["name"],simple_colors.green("+×+"))
-
+    #question which asks for phone number.
     question = ("\nPlease enter your phone number: ")
+    # prints question and asks for input(int). sends input through ph number validator and stores input in custoemr detials dictionary under phone
     customer_details['phone'] = check_phone(question, ph_low, ph_high)
-
+    #prints customer ph num
     print(simple_colors.green("\n+×+ "),customer_details["phone"],simple_colors.green("+×+"))
-
+    # question which asks for house number
     question = ("\nPlease enter your house number: ")
+    # prints quesiton and asks for input. sends input through not blank validator and store input in customer details dictionary under house
     customer_details['house'] = not_blank(question)
-
+    # prints customer house number
     print(simple_colors.green("\n+×+ "),customer_details['house'],simple_colors.green("+×+"))
-
+    #question which asks for street type
     question = ("\nPlease enter your street type: ")
+    # prints question and asks for input(string). sends input through string validator and stored input in customer details dictionary under road
     customer_details['road'] = check_string(question)
-
+    # prints customer street type
     print(simple_colors.green("\n+×+ "),customer_details['road'],simple_colors.green("+×+"))
-
+    # questoin which asks for street name
     question = ("\nPlease enter your street name: ")
+    #prints question and asks for input(string). Sends input through string validator and stores input in customer details dictionary under street
     customer_details['street'] = check_string(question)
-
+    # prints street name
     print(simple_colors.green("\n+×+ "),customer_details['street'],simple_colors.green("+×+"))
-
+    # question which asks for suburb
     question = ("\nPlease enter your suburb: ")
+    # prints question and asks for input(string). Sends input through string validator and stores input in customer detials dictionary under suburb
     customer_details['suburb'] = check_string(question)
-
+    # prints suburb
     print(simple_colors.green("\n+×+ "),customer_details['suburb'],simple_colors.green("+×+"))
 
 # Album menu
 def menu():
-        # Title header for the menu
-        print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-        print(simple_colors.yellow("                             +×+"),"ALBUMS",simple_colors.yellow("+×+"))
-        print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    '''
+    Purpose: Collects the customer's name and phone number for Click & Collect service.
+    Parameters: None
+    Returns: None
+    '''
+    # Title header for the menu
+    print(simple_colors.blue("\n\n+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
+    print(simple_colors.yellow("                             +×+"),"ALBUMS",simple_colors.yellow("+×+"))
+    print(simple_colors.blue("+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
 
-        num_albums = 16
+    # sets num_albums to 16 - total amount of different albums for sale
+    num_albums = 16
+    #prints blank so there will be a space
+    print("")
 
-        print("")
-        for count in range (num_albums):
-            print("-----------------------------------------------------------------------------")
-            print("{} {} ${:.2f}".format(simple_colors.red(count+1), album_names[count], album_prices[count]))
+    # code will count rhough 16 times until no more numbers are left
+    for count in range (num_albums):
+         # Formats the item number, album name, and price and
         print("-----------------------------------------------------------------------------")
+        print("{} {} ${:.2f}".format(simple_colors.red(count+1), album_names[count], album_prices[count]))
+    print("-----------------------------------------------------------------------------")
 
 # Choose total number of albums - max 5
 # Album ordering - from menu - print each album with cost
