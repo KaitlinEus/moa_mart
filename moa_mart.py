@@ -59,11 +59,17 @@ def not_blank(question):
     Returns: The validated non-blank value as a string.(response.title()
     '''
     valid = False
+    #sets up while loop
     while not valid:
+        #prints out question and asks for input(string)
         response = input(question)
+        #Checks if input is not blank
         if response != "":
+            # if not blank, rtuense the response in the title class
             return response.title()
+        #if blank
         else:
+            #prints error message
             print("\nSorry, this cannot be blank")
 
 
@@ -291,7 +297,7 @@ def delivery_info():
           "DELIVERY DETAILS", simple_colors.yellow("+×+"))
     print(simple_colors.blue(
         "+×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×++×+"))
-    # question which asks for first name
+    # Question which asks for first name
     question = ("\nPlease enter your first name: ")
     # Prints quetsion and asks for input(string). sends input through string validator and stores input in customer details dictionary under name
     customer_details['name'] = check_string(question)
@@ -628,12 +634,17 @@ def main():
     Parameters: None
     Returns: None
     '''
-
+    # Call the welcome function to welcome the customer to Moa Mart
     welcome()
+    # Call the order_type function to choose between delivery or click & collect 
     del_collect = order_type()
+    # Call the menu function to display the menu of albums
     menu()
+    # Call the order_albums function to process the album order
     order_albums()
+    # Call the print_order function to display and print out the order details
     print_order(del_collect)
+    # Call the confirm_cancel function to confirm or cancel the order
     confirm_cancel()
 
 
